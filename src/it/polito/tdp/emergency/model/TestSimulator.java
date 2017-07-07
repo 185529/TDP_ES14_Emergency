@@ -3,7 +3,19 @@ package it.polito.tdp.emergency.model;
 public class TestSimulator {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Simulator sim = new Simulator(3) ;
+		
+		for(int i=0; i<100; i++) {
+			Patient p = new Patient("Pat"+String.valueOf(i)) ;
+			sim.addPatient(p, 8*60 + i * 5);
+		}
+		
+		sim.run();
+		
+		System.out.println("Treated:   " + sim.getPatientsTreated());
+		System.out.println("Abandoned: " + sim.getPatientsAbandoned());
+		System.out.println("Dead:      " + sim.getPatientsDead());
 
 	}
 
